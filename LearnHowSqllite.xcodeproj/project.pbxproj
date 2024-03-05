@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10F77EC8340CA7AB949931FB /* Pods_LearnHowSqllite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A205E069CC6E831F2574E090 /* Pods_LearnHowSqllite.framework */; };
+		467ABCD82B97BA580085BFB1 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467ABCD72B97BA580085BFB1 /* DBHelper.swift */; };
+		467ABCDA2B97BADC0085BFB1 /* BookmarkDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467ABCD92B97BADC0085BFB1 /* BookmarkDB.swift */; };
+		467ABCDC2B97BB290085BFB1 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467ABCDB2B97BB290085BFB1 /* Bookmark.swift */; };
 		46F2FE852B9787C9003A4771 /* LearnHowSqlliteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2FE842B9787C9003A4771 /* LearnHowSqlliteApp.swift */; };
 		46F2FE872B9787C9003A4771 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2FE862B9787C9003A4771 /* ContentView.swift */; };
 		46F2FE892B9787CB003A4771 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46F2FE882B9787CB003A4771 /* Assets.xcassets */; };
@@ -14,11 +18,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		377EF5B9C9F9201188659623 /* Pods-LearnHowSqllite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnHowSqllite.release.xcconfig"; path = "Target Support Files/Pods-LearnHowSqllite/Pods-LearnHowSqllite.release.xcconfig"; sourceTree = "<group>"; };
+		467ABCD72B97BA580085BFB1 /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
+		467ABCD92B97BADC0085BFB1 /* BookmarkDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookmarkDB.swift; path = "/Users/stevenhertz/Documents/☐ Projects Good Code/just temp/LearnHowSqllite/LearnHowSqllite/BookmarkDB.swift"; sourceTree = "<absolute>"; };
+		467ABCDB2B97BB290085BFB1 /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		46F2FE812B9787C9003A4771 /* LearnHowSqllite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnHowSqllite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46F2FE842B9787C9003A4771 /* LearnHowSqlliteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnHowSqlliteApp.swift; sourceTree = "<group>"; };
 		46F2FE862B9787C9003A4771 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		46F2FE882B9787CB003A4771 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46F2FE8B2B9787CB003A4771 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9DD2E14FACF023683844BD89 /* Pods-LearnHowSqllite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnHowSqllite.debug.xcconfig"; path = "Target Support Files/Pods-LearnHowSqllite/Pods-LearnHowSqllite.debug.xcconfig"; sourceTree = "<group>"; };
+		A205E069CC6E831F2574E090 /* Pods_LearnHowSqllite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LearnHowSqllite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10F77EC8340CA7AB949931FB /* Pods_LearnHowSqllite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +48,8 @@
 			children = (
 				46F2FE832B9787C9003A4771 /* LearnHowSqllite */,
 				46F2FE822B9787C9003A4771 /* Products */,
+				74FC531375659010980FA287 /* Pods */,
+				D68AFF301054E4884F704FDA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,6 +66,9 @@
 			children = (
 				46F2FE842B9787C9003A4771 /* LearnHowSqlliteApp.swift */,
 				46F2FE862B9787C9003A4771 /* ContentView.swift */,
+				467ABCD92B97BADC0085BFB1 /* BookmarkDB.swift */,
+				467ABCDB2B97BB290085BFB1 /* Bookmark.swift */,
+				467ABCD72B97BA580085BFB1 /* DBHelper.swift */,
 				46F2FE882B9787CB003A4771 /* Assets.xcassets */,
 				46F2FE8A2B9787CB003A4771 /* Preview Content */,
 			);
@@ -67,6 +83,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		74FC531375659010980FA287 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9DD2E14FACF023683844BD89 /* Pods-LearnHowSqllite.debug.xcconfig */,
+				377EF5B9C9F9201188659623 /* Pods-LearnHowSqllite.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D68AFF301054E4884F704FDA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A205E069CC6E831F2574E090 /* Pods_LearnHowSqllite.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +107,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 46F2FE8F2B9787CB003A4771 /* Build configuration list for PBXNativeTarget "LearnHowSqllite" */;
 			buildPhases = (
+				C3F2D432AAC75EA898381EF2 /* [CP] Check Pods Manifest.lock */,
 				46F2FE7D2B9787C9003A4771 /* Sources */,
 				46F2FE7E2B9787C9003A4771 /* Frameworks */,
 				46F2FE7F2B9787C9003A4771 /* Resources */,
+				C785B43B751F08241268FA7E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,13 +167,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C3F2D432AAC75EA898381EF2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LearnHowSqllite-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C785B43B751F08241268FA7E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LearnHowSqllite/Pods-LearnHowSqllite-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LearnHowSqllite/Pods-LearnHowSqllite-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LearnHowSqllite/Pods-LearnHowSqllite-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		46F2FE7D2B9787C9003A4771 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				467ABCDC2B97BB290085BFB1 /* Bookmark.swift in Sources */,
 				46F2FE872B9787C9003A4771 /* ContentView.swift in Sources */,
+				467ABCD82B97BA580085BFB1 /* DBHelper.swift in Sources */,
 				46F2FE852B9787C9003A4771 /* LearnHowSqlliteApp.swift in Sources */,
+				467ABCDA2B97BADC0085BFB1 /* BookmarkDB.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,7 +262,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -245,7 +325,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -266,6 +346,7 @@
 		};
 		46F2FE902B9787CB003A4771 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DD2E14FACF023683844BD89 /* Pods-LearnHowSqllite.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -280,6 +361,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -295,6 +377,7 @@
 		};
 		46F2FE912B9787CB003A4771 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 377EF5B9C9F9201188659623 /* Pods-LearnHowSqllite.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -309,6 +392,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
