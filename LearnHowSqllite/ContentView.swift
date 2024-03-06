@@ -14,14 +14,14 @@ struct ContentView: View {
     let columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible())
-        // Add more GridItem instances for more columns.
     ]
-    
+}
+
+extension ContentView {
     
     var body: some View {
         
         VStack(spacing: 16) {
-            
             
             Button(action: {
                 print("Init DB was tapped")
@@ -64,11 +64,11 @@ struct ContentView: View {
                 }
                 .padding()
             
-                        
+            
             getLazyVGridView(bookmarks: bookmarks)
             
             getListView(bookmarks: bookmarks)
-                        
+            
         }
         .padding()
     }
@@ -111,7 +111,7 @@ extension ContentView {
 
 extension ContentView {
     
-
+    
     func getBookMarks() {
         BookmarkDB.shared.getAllBookmarks{
             dbBookmarks in
@@ -134,7 +134,7 @@ extension ContentView {
             }
         }
     }
-
+    
 }
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
