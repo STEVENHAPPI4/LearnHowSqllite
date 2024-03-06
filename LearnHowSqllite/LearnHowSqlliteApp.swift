@@ -14,4 +14,7 @@ struct LearnHowSqlliteApp: App {
             ContentView()
         }
     }
+    init() {
+        DBHelper.shared.initDatabase()
+    }
 }

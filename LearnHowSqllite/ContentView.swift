@@ -11,11 +11,18 @@ struct ContentView: View {
     
     @State var bookmarks = [Bookmark]()
     
+    let columns: [GridItem] = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+        // Add more GridItem instances for more columns.
+    ]
+    
+    
     var body: some View {
-
+        
         VStack(spacing: 16) {
             
-
+            
             Button(action: {
                 print("Init DB was tapped")
                 DBHelper.shared.initDatabase() } )
@@ -42,7 +49,7 @@ struct ContentView: View {
                         .shadow(color: .black, radius: 2, x: 6, y: 6)
                 }
                 .padding()
-
+            
             
             Button(action: {
                 print("get Rows was tapped")
@@ -57,22 +64,54 @@ struct ContentView: View {
                 }
                 .padding()
             
-
-            List(bookmarks) { bookmark in
-                VStack(alignment: .leading) {
-                    Text(bookmark.title)
-                        .font(.headline)
-                    Text("Progress: \(bookmark.progress * 100, specifier: "%.1f")%")
-                        .font(.subheadline)
-                    Text("Time: \(bookmark.time) seconds")
-                        .font(.subheadline)
-                }
-            }
-
+                        
+            getLazyVGridView(bookmarks: bookmarks)
+            
+            getListView(bookmarks: bookmarks)
+                        
         }
         .padding()
     }
+}
+
+
+extension ContentView {
     
+    func getLazyVGridView(bookmarks: Array<Bookmark>) -> some View {
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: 20) {
+                ForEach(bookmarks) { bookmark in
+                    VStack {
+                        Text(bookmark.title).font(.headline)
+                        Text("Progress: \(bookmark.progress * 100, specifier: "%.1f")%").font(.subheadline)
+                        Text("Time: \(bookmark.time) seconds").font(.subheadline)
+                    }
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(8)
+                }
+            }
+            .padding()
+        }
+    }
+    
+    func getListView(bookmarks: Array<Bookmark>) -> some View {
+        List(bookmarks) { bookmark in
+            VStack(alignment: .leading) {
+                Text(bookmark.title)
+                    .font(.headline)
+                Text("Progress: \(bookmark.progress * 100, specifier: "%.1f")%")
+                    .font(.subheadline)
+                Text("Time: \(bookmark.time) seconds")
+                    .font(.subheadline)
+            }
+        }
+    }
+}
+
+extension ContentView {
+    
+
     func getBookMarks() {
         BookmarkDB.shared.getAllBookmarks{
             dbBookmarks in
@@ -80,8 +119,6 @@ struct ContentView: View {
             dbBookmarks.forEach { bm in
                 dump(bm)
             }
-//            self.bookmarks = dbBookmarks
-//            self.loadBookmarkShiurim()
         }
     }
     
@@ -99,7 +136,11 @@ struct ContentView: View {
     }
 
 }
-
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView(bookmarks: [
+            Bookmark(id: 1, shiurID: 101, title: "Bookmark 1", progress: 0.5, time: 120),
+            Bookmark(id: 2, shiurID: 102, title: "Bookmark 2", progress: 0.3, time: 150)
+        ])
+    }
 }
