@@ -17,6 +17,7 @@ struct ContentView: View {
     ]
 }
 
+//  MARK: -  <#TITLE#>
 extension ContentView {
     
     fileprivate func buttonInit() -> some View {
@@ -28,7 +29,6 @@ extension ContentView {
             }
             .customButtonStyle()
     }
-    
     
     fileprivate func buttonInsert() -> some View {
         return Button(action: {
@@ -54,6 +54,7 @@ extension ContentView {
         { Text("Add a column") }
             .customButtonStyle()
     }
+    
     fileprivate func buttonAddCollumnWithDef() -> some View {
         return Button(action: {
             print("Added a column with def")
@@ -86,7 +87,7 @@ extension ContentView {
     }
 }
 
-
+//  MARK: -  <#TITLE#>
 extension ContentView {
     
     func getLazyVGridView(bookmarks: Array<Bookmark>) -> some View {
@@ -121,11 +122,11 @@ extension ContentView {
     }
 }
 
+//  MARK: -  <#TITLE#>
 extension ContentView {
     
-    
     func getBookMarks() {
-        BookmarkDB.shared.getFilteredBookmarks { bm in
+        BookmarkDB.shared.getFilteredBookmarksWithshiurID(51) { bm in
             print("hello")
         }
         BookmarkDB.shared.getAllBookmarks{

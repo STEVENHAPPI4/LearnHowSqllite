@@ -54,6 +54,7 @@ class BookmarkDB {
         }
     }
     
+    
     func bookmarkAddColumnWithDefaultValue<T: SQLite.Value>(columnType: T.Type, columnName: String, defaultValue: T, completionHandler: @escaping (Bool) -> Void) {
         let newColumn = Expression<T>(columnName)
         let addColumnStatement = bookmarks.addColumn(newColumn, defaultValue: defaultValue)
@@ -99,6 +100,7 @@ class BookmarkDB {
         }
     }
     
+        // -- Retreive the rows
     func getAllBookmarks(completionHandler : @escaping([Bookmark]) -> Void) {
         var bookmarkItems: [Bookmark] = []
         
@@ -117,14 +119,9 @@ class BookmarkDB {
         }
     }
     
-    func getFilteredBookmarks(completionHandler : @escaping([Bookmark]) -> Void) {
-//        var bookmarkItems: [Bookmark] = []
-        
-//        let shiurID = Expression<Int>("shiurID")
-//        let title = Expression<String>("title")
+    func getFilteredBookmarksWithshiurID(_ shiurIDPassed: Int, completionHandler : @escaping([Bookmark]) -> Void) {
 
-
-        let query = bookmarks.filter(shiurID == 51) // Your specific condition
+        let query = bookmarks.filter(shiurID == shiurIDPassed) // Your specific condition
 
         do {
             for bm in try DBHelper.shared.connectDB().prepare(query) {
