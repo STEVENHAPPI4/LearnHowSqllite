@@ -19,55 +19,67 @@ struct ContentView: View {
 
 extension ContentView {
     
+    fileprivate func buttonInit() -> some View {
+        return Button(action: {
+            print("Init DB was tapped")
+            DBHelper.shared.initDatabase() } ) 
+            {
+                Text("Init DB")
+            }
+            .customButtonStyle()
+    }
+    
+    
+    fileprivate func buttonInsert() -> some View {
+        return Button(action: {
+            print("Insert Row was tapped")
+            addBookmark() } )
+        { Text("Insert Row") }
+            .customButtonStyle()
+    }
+    
+    fileprivate func buttonGetRow() -> some View {
+        return Button(action: {
+            print("get Rows was tapped")
+            getBookMarks()} )
+        { Text("Get Rows") }
+            .customButtonStyle()
+ 
+    }
+    
+    fileprivate func buttonAddCollumn() -> some View {
+        return Button(action: {
+            print("Added a column")
+            addColumn() } )
+        { Text("Add a column") }
+            .customButtonStyle()
+    }
+    fileprivate func buttonAddCollumnWithDef() -> some View {
+        return Button(action: {
+            print("Added a column with def")
+            addColumnWithDefault() } )
+        { Text("Add a column with default") }
+            .customButtonStyle()
+    }
+
+    
     var body: some View {
         
         VStack(spacing: 16) {
             
-            Button(action: {
-                print("Init DB was tapped")
-                DBHelper.shared.initDatabase() } )
-            { Text("Init DB") }
-                .padding()
-                .foregroundStyle(.white)
-                .background {
-                    RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .fill(.blue)
-                        .shadow(color: .black, radius: 2, x: 6, y: 6)
-                }
-                .padding()
+            buttonInit()
             
+            buttonInsert()
             
-            Button(action: {
-                print("Insert Row was tapped")
-                addBookmark() } )
-            { Text("Insert Row") }
-                .padding()
-                .foregroundStyle(.white)
-                .background {
-                    RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .fill(.orange)
-                        .shadow(color: .black, radius: 2, x: 6, y: 6)
-                }
-                .padding()
+            buttonGetRow()
             
+            buttonAddCollumn()
             
-            Button(action: {
-                print("get Rows was tapped")
-                getBookMarks()} )
-            { Text("Get Rows") }
-                .padding()
-                .foregroundStyle(.white)
-                .background {
-                    RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .fill(.orange)
-                        .shadow(color: .black, radius: 2, x: 6, y: 6)
-                }
-                .padding()
-            
-            
+            buttonAddCollumnWithDef()
+
             getLazyVGridView(bookmarks: bookmarks)
             
-            getListView(bookmarks: bookmarks)
+//            getListView(bookmarks: bookmarks)
             
         }
         .padding()
@@ -113,6 +125,9 @@ extension ContentView {
     
     
     func getBookMarks() {
+        BookmarkDB.shared.getFilteredBookmarks { bm in
+            print("hello")
+        }
         BookmarkDB.shared.getAllBookmarks{
             dbBookmarks in
             self.bookmarks = dbBookmarks
@@ -122,10 +137,38 @@ extension ContentView {
         }
     }
     
+    func addColumn() {
+        BookmarkDB.shared.bookmarkAddColumnTable() { (isSuccess) in
+            if (isSuccess)! {
+                print("added a column")
+            } else {
+                print("error adding a column")
+            }
+        }
+    }
+    
+    func addColumnWithDefault()  {
+        BookmarkDB.shared.bookmarkAddColumnWithDefaultValue(
+            columnType: String.self,
+            columnName: "forFun",
+            defaultValue: ""
+        ) { _ in
+            print(
+                "finished running"
+            )
+        }
+        
+    }
+    
     func addBookmark() {
-        let dataDict = ["shiurID" : Int.random(in: 1...100),
-                        "title" : ["Lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", "elxit", "sxed", "dxo", "eiusmod", "tempor", "incididunt", "ut"].randomElement() as Any,
-                        "time": [20, 626, 11, 123, 432, 34, 64, 24, 92].randomElement() as Any,
+        let shiurID = Int.random(in: 1...100) as Int
+//        let progress =
+        let time =  [20, 626, 11, 123, 432, 34, 64, 24, 92].randomElement()! as Int
+        let title = ["Lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", "elxit", "sxed", "dxo", "eiusmod", "tempor", "incididunt", "ut"].randomElement()! as String
+        
+        let dataDict = ["shiurID" : shiurID,
+                        "title" : title,
+                        "time": time,
                         "progress": 100] as [String : Any]
         
         BookmarkDB.shared.bookmarkInsert(valueDict: dataDict as NSDictionary ) { (isSuccess) in
@@ -136,7 +179,33 @@ extension ContentView {
     }
     
 }
+
+    // Custom modifier definition
+    struct CustomButtonModifier: ViewModifier {
+        func body(content: Content) -> some View {
+            content
+                .padding()
+                .foregroundStyle(.white)
+                .frame(width: 200, alignment: .center)
+                .background {
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .fill(.blue)
+                        .shadow(color: .black, radius: 2, x: 6, y: 6)
+                }
+        }
+    }
+
+    // Convenience extension for applying the modifier
+    extension View {
+        func customButtonStyle() -> some View {
+            modifier(CustomButtonModifier())
+        }
+    }
+
+
+
 struct ContentView_Previews: PreviewProvider {
+    //MARK: - Properties
     static var previews: some View {
         ContentView(bookmarks: [
             Bookmark(id: 1, shiurID: 101, title: "Bookmark 1", progress: 0.5, time: 120),

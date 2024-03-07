@@ -43,6 +43,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46B716B92B97FD61005F9FBC /* Bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				467ABCD92B97BADC0085BFB1 /* BookmarkDB.swift */,
+				467ABCDB2B97BB290085BFB1 /* Bookmark.swift */,
+				467ABCD72B97BA580085BFB1 /* DBHelper.swift */,
+			);
+			path = Bookmarks;
+			sourceTree = "<group>";
+		};
 		46F2FE782B9787C9003A4771 = {
 			isa = PBXGroup;
 			children = (
@@ -66,9 +76,7 @@
 			children = (
 				46F2FE842B9787C9003A4771 /* LearnHowSqlliteApp.swift */,
 				46F2FE862B9787C9003A4771 /* ContentView.swift */,
-				467ABCD92B97BADC0085BFB1 /* BookmarkDB.swift */,
-				467ABCDB2B97BB290085BFB1 /* Bookmark.swift */,
-				467ABCD72B97BA580085BFB1 /* DBHelper.swift */,
+				46B716B92B97FD61005F9FBC /* Bookmarks */,
 				46F2FE882B9787CB003A4771 /* Assets.xcassets */,
 				46F2FE8A2B9787CB003A4771 /* Preview Content */,
 			);
